@@ -8,22 +8,12 @@
     <language>en-us</language>
     <lastBuildDate>Sun, 04 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://jordansaadeh.github.io/categories/nfl/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Are the New England Patriots More of a Passing Threat with Brady or Newton?</title>
-      <link>http://jordansaadeh.github.io/2021/04/04/are-the-new-england-patriots-more-of-a-passing-threat-with-brady-or-newton/</link>
+      <title>How well Did Cam Newton fill in Tom Brady&#39;s spot in his first season as a Patriot?</title>
+      <link>http://jordansaadeh.github.io/2021/04/04/how-well-did-cam-newton-fill-in-tom-brady-s-spot-in-his-first-season-as-a-patriot/</link>
       <pubDate>Sun, 04 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://jordansaadeh.github.io/2021/04/04/are-the-new-england-patriots-more-of-a-passing-threat-with-brady-or-newton/</guid>
-      <description>All good things must come to an end, and that is what happened in the summer going into the 2020 NFL season with the New England Patriots quarterback for the past two decades, Tom Brady. After 20 seasons with the Patriots, Brady was able to give the city of New England six Super Bowl Championships, 13 AFC Championship games, while winning three the NFL MVP award and Super Bowl MVP three times.</description>
-    </item>
-    
-    <item>
-      <title>Are the New England Patriots a Better Passing Team with Tom Brady or Cam Newton? </title>
-      <link>http://jordansaadeh.github.io/2021/04/02/are-the-new-england-patriots-a-better-passing-team-with-tom-brady-or-cam-newton/</link>
-      <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
-      
-      <guid>http://jordansaadeh.github.io/2021/04/02/are-the-new-england-patriots-a-better-passing-team-with-tom-brady-or-cam-newton/</guid>
-      <description>library(tidyverse) ## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ── ## ✓ ggplot2 3.3.3 ✓ purrr 0.3.4 ## ✓ tibble 3.0.5 ✓ dplyr 1.0.4 ## ✓ tidyr 1.1.2 ✓ stringr 1.4.0 ## ✓ readr 1.4.0 ✓ forcats 0.5.1 ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ── ## x dplyr::filter() masks stats::filter() ## x dplyr::lag() masks stats::lag() library(waffle) library(ggrepel) library(dplyr) library(readr) Upload all the libraries needed
-BradyData &amp;lt;- read_csv(&amp;quot;~/Desktop/data/Brady Data .csv&amp;quot;) ## Warning: Duplicated column names deduplicated: &amp;#39;Lg&amp;#39; =&amp;gt; &amp;#39;Lg_1&amp;#39; [17] ## ## ── Column specification ──────────────────────────────────────────────────────── ## cols( ## .</description>
+      <guid>http://jordansaadeh.github.io/2021/04/04/how-well-did-cam-newton-fill-in-tom-brady-s-spot-in-his-first-season-as-a-patriot/</guid>
+      <description>  </description>
     </item>
     
   </channel>
