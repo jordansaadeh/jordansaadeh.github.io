@@ -6,11 +6,29 @@
     <description>Recent content in Categories on Jordan Saadeh Sports Analytics Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 02 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://jordansaadeh.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://jordansaadeh.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blogs</title>
+      <link>http://jordansaadeh.github.io/categories/blogs/</link>
+      <pubDate>Sun, 04 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://jordansaadeh.github.io/categories/blogs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data</title>
+      <link>http://jordansaadeh.github.io/categories/data/</link>
+      <pubDate>Sun, 04 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://jordansaadeh.github.io/categories/data/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>New England Patriots</title>
       <link>http://jordansaadeh.github.io/categories/new-england-patriots/</link>
-      <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 04 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>http://jordansaadeh.github.io/categories/new-england-patriots/</guid>
       <description></description>
@@ -19,7 +37,7 @@
     <item>
       <title>NFL</title>
       <link>http://jordansaadeh.github.io/categories/nfl/</link>
-      <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 04 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>http://jordansaadeh.github.io/categories/nfl/</guid>
       <description></description>
@@ -31,15 +49,6 @@
       <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>http://jordansaadeh.github.io/categories/sports-blog/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Blogs</title>
-      <link>http://jordansaadeh.github.io/categories/blogs/</link>
-      <pubDate>Mon, 15 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>http://jordansaadeh.github.io/categories/blogs/</guid>
       <description></description>
     </item>
     
