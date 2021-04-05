@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.81.0" />
+
+
+<title>Are the New England Patriots more of a passing threat with Cam Newton or Tom Brady? - Jordan Saadeh Sports Analytics Blog</title>
+<meta property="og:title" content="Are the New England Patriots more of a passing threat with Cam Newton or Tom Brady? - Jordan Saadeh Sports Analytics Blog">
+
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="jordansaadeh23@gmail.com">Email</a></li>
+    
+    <li><a href="http://jordansaadeh.github.io">github</a></li>
+    
+    <li><a href="612-799-2244">Phone Number</a></li>
+    
+    <li><a href="https://twitter.com/jordansaadeh">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">12 min read</span>
+    
+
+    <h1 class="article-title">Are the New England Patriots more of a passing threat with Cam Newton or Tom Brady?</h1>
+
+    
+    <span class="article-date">2021-04-04</span>
+    
+
+    <div class="article-content">
+      
+<script src="http://jordansaadeh.github.io/2021/04/04/are-the-new-england-patriots-more-of-a-passing-threat-with-cam-newton-or-tom-brady/index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>All good things must come to an end, and that is what happened in the summer going into the 2020 NFL season with the New England Patriots quarterback for the past two decades, Tom Brady. After 20 seasons with the Patriots, Brady was able to give the city of New England six Super Bowl Championships, 13 AFC Championship games, while winning three the NFL MVP awards and Super Bowl MVP three times.</p>
+<p>What did the New England Patriots do to fill in Brady’s spot? They signed former NFL MVP Cam Newton who previously played for the Carolina Panthers. Newton was looked at as an elite quarterback in the NFL, it was during Week 2 of the 2019 season when he suffered an injury having him placed on injured reserve and eventually be waived by the Panthers. The Patriots took a shot with Newton signing him to a one year contract, with big to shoes fill and pressure to rejuvenate his career let’s see how the two quarterback compared during Brady’s last season with the Patriots and Newton’s first season with the Patriots.</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.3     ✓ purrr   0.3.4
+## ✓ tibble  3.0.5     ✓ dplyr   1.0.4
+## ✓ tidyr   1.1.2     ✓ stringr 1.4.0
+## ✓ readr   1.4.0     ✓ forcats 0.5.1</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(waffle)
+library(ggrepel)
+library(dplyr)
+library(readr)</code></pre>
+<p>Upload all the libraries needed</p>
+<pre class="r"><code>BradyData &lt;- read_csv(&quot;~/Desktop/data/Brady Data  .csv&quot;)</code></pre>
+<pre><code>## Warning: Duplicated column names deduplicated: &#39;Lg&#39; =&gt; &#39;Lg_1&#39; [17]</code></pre>
+<pre><code>## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   .default = col_double(),
+##   Player = col_character(),
+##   Team = col_character(),
+##   Lg = col_character(),
+##   Yds = col_number(),
+##   Lg_1 = col_character(),
+##   FD = col_character(),
+##   `20+` = col_character()
+## )
+## ℹ Use `spec()` for the full column specifications.</code></pre>
+<pre class="r"><code>NewtonData &lt;- read_csv(&quot;~/Desktop/data/Newton Patriots Data .csv&quot;)</code></pre>
+<pre><code>## Warning: Duplicated column names deduplicated: &#39;Lg&#39; =&gt; &#39;Lg_1&#39; [17]</code></pre>
+<pre><code>## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   .default = col_double(),
+##   Name = col_character(),
+##   Team = col_character(),
+##   Lg = col_character(),
+##   Yds = col_number()
+## )
+## ℹ Use `spec()` for the full column specifications.</code></pre>
+<pre class="r"><code>NFLPassing20 &lt;- read_csv(&quot;~/Desktop/data/2020 NFL Passing Stats  .csv&quot;)</code></pre>
+<pre><code>## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   Player = col_character(),
+##   Team = col_character(),
+##   Gms = col_double(),
+##   Att = col_double(),
+##   Cmp = col_double(),
+##   Pct = col_double(),
+##   Yds = col_number(),
+##   YPA = col_double(),
+##   TD = col_double(),
+##   `TD%` = col_double(),
+##   Int = col_double(),
+##   `Int%` = col_double(),
+##   Lg = col_character(),
+##   Sack = col_double(),
+##   Loss = col_double(),
+##   Rate = col_double()
+## )</code></pre>
+<pre class="r"><code>NFLPassing19 &lt;- read_csv(&quot;~/Desktop/data/NFL Passing Stats 2019 .csv&quot;)</code></pre>
+<pre><code>## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   Player = col_character(),
+##   Team = col_character(),
+##   Gms = col_double(),
+##   Att = col_double(),
+##   Cmp = col_double(),
+##   Pct = col_double(),
+##   Yds = col_number(),
+##   YPA = col_double(),
+##   TD = col_double(),
+##   `TD%` = col_double(),
+##   Int = col_double(),
+##   `Int%` = col_double(),
+##   Lg = col_character(),
+##   Sack = col_double(),
+##   Loss = col_double(),
+##   Rate = col_double()
+## )</code></pre>
+<p>Upload the data of the two quarterback I will be looking at Tom Brady &amp; Cam Newton when they played for the Patriots.</p>
+<pre class="r"><code>head(BradyData)</code></pre>
+<pre><code>## # A tibble: 6 x 22
+##   Player  Year Team  Lg        G    GS   Att   Cmp   Pct   Yds   YPA   YPG    TD
+##   &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 Tom B…  2019 New … NFL      16    16   613   373  60.8  4057   6.6  254.    24
+## 2 Tom B…  2020 Tamp… NFL      16    16   610   401  65.7  4633   7.6  290.    40
+## 3 Tom B…  2017 New … NFL      16    16   581   385  66.3  4577   7.9  286.    32
+## 4 Tom B…  2015 New … NFL      16    16   624   402  64.4  4770   7.6  298.    36
+## 5 Tom B…  2005 New … NFL      16    16   530   334  63    4110   7.8  257.    26
+## 6 Tom B…  2004 New … NFL      16    16   474   288  60.8  3692   7.8  231.    28
+## # … with 9 more variables: `TD%` &lt;dbl&gt;, Int &lt;dbl&gt;, `Int%` &lt;dbl&gt;, Lg_1 &lt;chr&gt;,
+## #   FD &lt;chr&gt;, `20+` &lt;chr&gt;, Sack &lt;dbl&gt;, Loss &lt;dbl&gt;, Rate &lt;dbl&gt;</code></pre>
+<pre class="r"><code>head(NewtonData)</code></pre>
+<pre><code>## # A tibble: 1 x 22
+##   Name    Year Team  Lg        G    GS   Att   Cmp   Pct   Yds   YPA   YPG    TD
+##   &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 Cam N…  2020 New … NFL      15    15   368   242  65.8  2657   7.2  177.     8
+## # … with 9 more variables: `TD%` &lt;dbl&gt;, Int &lt;dbl&gt;, `Int%` &lt;dbl&gt;, Lg_1 &lt;dbl&gt;,
+## #   FD &lt;dbl&gt;, `20+` &lt;dbl&gt;, Sack &lt;dbl&gt;, Loss &lt;dbl&gt;, Rate &lt;dbl&gt;</code></pre>
+<p>Get the data by using a header and show the chart</p>
+<pre class="r"><code>BradyData &lt;- c(&quot;Cmp&quot;=373, &quot;Att&quot;=613)
+NewtonData &lt;- c(&quot;Cmp&quot;=242, &quot;Att&quot;=368)</code></pre>
+<p>The first statistic I am going to look at is the passing attempts and completions for Brady and Newton.</p>
+<pre class="r"><code>waffle(BradyData/5, rows = 5, xlab=&quot;1 Red square = 5 Completions, 1 Navy square = 5 Passing Attempts&quot;, colors = c(&quot;Red&quot;, &quot;Navy&quot;)) + labs(title=&quot;Tom Brady Completions and Attempts 2019 Season&quot;, subtitle=&quot;The New England Patriots are a Passing Threat With Brady&quot;, caption=&quot;Source: footballdb.com | Graphic by Jordan Saadeh&quot;) + 
+  theme(
+    plot.title = element_text(size = 18, face = &quot;bold&quot;),
+    axis.title = element_text(size = 12),
+    axis.title.y = element_blank()
+  ) + ggsave(&quot;BradyWaffle.pdf&quot;)</code></pre>
+<pre><code>## Saving 7 x 5 in image</code></pre>
+<p><img src="http://jordansaadeh.github.io/2021/04/04/are-the-new-england-patriots-more-of-a-passing-threat-with-cam-newton-or-tom-brady/index_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+This waffle chart shows that Tom Brady was 373/613 on passing attempts for the 2019 season his last year with the Patriots. That is a 60.8% completaion rate. In the graph every red square in five completions and every Navy square is five passing attempts.</p>
+<pre class="r"><code>waffle(NewtonData/5, rows = 5, xlab=&quot;1 Red square = 5 Completions, 1 Navy square = 5 Passing Attempts&quot;, colors = c(&quot;Red&quot;, &quot;Navy&quot;)) + labs(title=&quot;Cam Newton Completions and Attempts 2020 Season&quot;, subtitle=&quot;With Newton the Patriots are less of a passsing threat than Brady&quot;, caption=&quot;Source: footballdb.com | Graphic by Jordan Saadeh&quot;) + 
+  theme(
+    plot.title = element_text(size = 18, face = &quot;bold&quot;),
+    axis.title = element_text(size = 12),
+    axis.title.y = element_blank()
+  ) + ggsave(&quot;Newton.pdf&quot;)</code></pre>
+<pre><code>## Saving 7 x 5 in image</code></pre>
+<p><img src="http://jordansaadeh.github.io/2021/04/04/are-the-new-england-patriots-more-of-a-passing-threat-with-cam-newton-or-tom-brady/index_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+This chart shows Newton was only 242/368 on passing attempts on the season meaning he finished with a 65.8% completion rate, which is better than Brady on the previous season but look at how many attempts they had in the 2020 season compared to the 2019 season.</p>
+<pre class="r"><code>Receivers19 &lt;- read_csv(&quot;~/Desktop/data/Patriots WR Data Brady 2019.csv&quot;)</code></pre>
+<pre><code>## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   Player = col_character(),
+##   Gms = col_double(),
+##   Rec = col_double(),
+##   Yds = col_number(),
+##   Avg = col_double(),
+##   YPG = col_double(),
+##   Lg = col_character(),
+##   TD = col_double(),
+##   FD = col_double(),
+##   Tar = col_double(),
+##   YAC = col_double()
+## )</code></pre>
+<pre class="r"><code>Receivers20 &lt;- read_csv(&quot;~/Desktop/data/Patriots WR data Newton 2020.csv&quot;)</code></pre>
+<pre><code>## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   Player = col_character(),
+##   Gms = col_double(),
+##   Rec = col_double(),
+##   Yds = col_double(),
+##   Avg = col_double(),
+##   YPG = col_double(),
+##   Lg = col_character(),
+##   TD = col_double(),
+##   FD = col_double(),
+##   Tar = col_double(),
+##   YAC = col_double()
+## )</code></pre>
+<p>The next statistic I will to breakdown the quarterbacks perofrmances is how well there receivers played by looking at yards per reception.</p>
+<pre class="r"><code>head(Receivers19)</code></pre>
+<pre><code>## # A tibble: 6 x 11
+##   Player            Gms   Rec   Yds   Avg   YPG Lg       TD    FD   Tar   YAC
+##   &lt;chr&gt;           &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 Julian Edelman     16   100  1117 11.2   69.8 44        6    54   153   320
+## 2 James White        15    72   645  8.96  43   59        5    31    95   530
+## 3 Phillip Dorsett    14    29   397 13.7   28.4 58t       5    17    54    79
+## 4 Rex Burkhead       13    27   279 10.3   21.5 32        0    10    38   229
+## 5 Mohamed Sanu        8    26   207  7.96  25.9 22        1    14    47    71
+## 6 Jakobi Meyers      15    26   359 13.8   23.9 35        0    17    41   114</code></pre>
+<pre class="r"><code>head(Receivers20)</code></pre>
+<pre><code>## # A tibble: 6 x 11
+##   Player           Gms   Rec   Yds   Avg   YPG Lg       TD    FD   Tar   YAC
+##   &lt;chr&gt;          &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 Jakobi Meyers     14    59   729 12.4   52.1 35        0    37    81   216
+## 2 James White       14    49   375  7.65  26.8 34        1    20    62   411
+## 3 Damiere Byrd      16    47   604 12.8   37.8 42t       1    29    77   172
+## 4 N&#39;Keal Harry      14    33   309  9.36  22.1 30        2    15    57   105
+## 5 Rex Burkhead      10    25   192  7.68  19.2 24t       3    11    33   207
+## 6 Julian Edelman     6    21   315 15     52.5 49        0    18    39    64</code></pre>
+<p>Put a head on it so you can see the actual data</p>
+<pre class="r"><code>Receivers19 %&gt;% mutate(
+  change = (`Yds` - `Rec`)/`Rec`)</code></pre>
+<pre><code>## # A tibble: 18 x 12
+##    Player       Gms   Rec   Yds   Avg   YPG Lg       TD    FD   Tar   YAC change
+##    &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+##  1 Julian Ed…    16   100  1117 11.2   69.8 44        6    54   153   320  10.2 
+##  2 James Whi…    15    72   645  8.96  43   59        5    31    95   530   7.96
+##  3 Phillip D…    14    29   397 13.7   28.4 58t       5    17    54    79  12.7 
+##  4 Rex Burkh…    13    27   279 10.3   21.5 32        0    10    38   229   9.33
+##  5 Mohamed S…     8    26   207  7.96  25.9 22        1    14    47    71   6.96
+##  6 Jakobi Me…    15    26   359 13.8   23.9 35        0    17    41   114  12.8 
+##  7 Josh Gord…     6    20   287 14.4   47.8 44        1    10    36   133  13.4 
+##  8 Benjamin …    10    17   173 10.2   17.3 26        0     9    24    83   9.18
+##  9 Matt LaCo…    11    13   131 10.1   11.9 24        1     6    19    46   9.08
+## 10 Sony Mich…    16    12    94  7.83   5.9 19        0     7    20   121   6.83
+## 11 N&#39;Keal Ha…     7    12   105  8.75  15   18        2     7    24    42   7.75
+## 12 Brandon B…    15     9   111 12.3    7.4 29t       1     6    11    59  11.3 
+## 13 Ryan Izzo      6     6   114 19     19   41        1     4     9    50  18   
+## 14 Antonio B…     1     4    56 14     56   20t       1     3     8     7  13   
+## 15 Gunner Ol…     8     2    34 17      4.2 29        0     1     4    16  16   
+## 16 Jakob Joh…     4     1     5  5      1.2 5         0     0     2     1   4   
+## 17 Elandon R…    16     1    38 38      2.4 38t       1     1     1    31  37   
+## 18 Eric Toml…     2     1     1  1      0.5 1         0     0     1     1   0</code></pre>
+<pre class="r"><code>Receivers20 %&gt;% mutate(
+  change = (`Yds` - `Rec`)/`Rec`)</code></pre>
+<pre><code>## # A tibble: 18 x 12
+##    Player       Gms   Rec   Yds   Avg   YPG Lg       TD    FD   Tar   YAC change
+##    &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+##  1 Jakobi Me…    14    59   729 12.4   52.1 35        0    37    81   216  11.4 
+##  2 James Whi…    14    49   375  7.65  26.8 34        1    20    62   411   6.65
+##  3 Damiere B…    16    47   604 12.8   37.8 42t       1    29    77   172  11.9 
+##  4 N&#39;Keal Ha…    14    33   309  9.36  22.1 30        2    15    57   105   8.36
+##  5 Rex Burkh…    10    25   192  7.68  19.2 24t       3    11    33   207   6.68
+##  6 Julian Ed…     6    21   315 15     52.5 49        0    18    39    64  14   
+##  7 Ryan Izzo     12    13   199 15.3   16.6 50        0     6    20    68  14.3 
+##  8 Jakob Joh…    16     8    35  4.38   2.2 12        1     3     9    20   3.38
+##  9 Sony Mich…     9     7   114 16.3   12.7 31t       1     5     9   110  15.3 
+## 10 Damien Ha…    10     5    52 10.4    5.2 15        0     4     7    55   9.4 
+## 11 Gunner Ol…    13     5    62 12.4    4.8 38t       1     3     5    35  11.4 
+## 12 Dalton Ke…     6     3    16  5.33   2.7 8         0     0     5     1   4.33
+## 13 Cam Newton    15     2    35 17.5    2.3 19t       1     2     2    18  16.5 
+## 14 Devin Asi…     9     2    39 19.5    4.3 26t       1     2     7     6  18.5 
+## 15 Isaiah Zu…     4     2    29 14.5    7.2 16        0     1     2    30  13.5 
+## 16 Donte Mon…     6     1    15 15      2.5 15        0     1     2    14  14   
+## 17 J.J. Tayl…     6     1     4  4      0.7 4         0     0     2     8   3   
+## 18 Jordan Th…     2     0     0  0      0   0         0     0     1     0 NaN</code></pre>
+<p>The change shows how many yards per reception for every receiver on the Patriots from Bradys last season with the Patriots and Newtons first season with them. The data shows thats the Patriots receivers in 2019 had an average of 11.3 yards per reception while the Patriots receivers in 2020 had an average of 10.1 yards per reception. This is not much of a dramatic change with only a 1.2% decrease is yards per reception.</p>
+<pre class="r"><code>ggplot(Receivers19, aes(x=`Rec`, y=`Yds`)) + 
+  geom_point(color=&quot;Red&quot;) + geom_smooth(method=lm, se=FALSE) + 
+  labs(x=&quot;Total Receptions&quot;, y=&quot;Yards Gained&quot;, title=&quot;New England Patriots Recievers Yards and Receptions with Tom Brady in 2019&quot;, subtitle=&quot;New England Patriots Receivers are more productive with Brady&quot;, caption=&quot;Source: footballdb.com | By Jordan Saadeh&quot;) + 
+  theme_minimal() + 
+  theme(
+    plot.title = element_text(size = 16, face = &quot;bold&quot;),
+    axis.title = element_text(size = 10), 
+    plot.subtitle = element_text(size=10), 
+    panel.grid.minor = element_blank()
+    ) + ggsave(&quot;Pats19Recivingplot.png&quot;, width=5, height=2) </code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;
+## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="http://jordansaadeh.github.io/2021/04/04/are-the-new-england-patriots-more-of-a-passing-threat-with-cam-newton-or-tom-brady/index_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(Receivers20, aes(x=`Rec`, y=`Yds`)) + 
+  geom_point(color=&quot;Red&quot;) + geom_smooth(method=lm, se=FALSE) + 
+  labs(x=&quot;Total Receptions&quot;, y=&quot;Yards Gained&quot;, title=&quot;New England Patriots Recievers Yards and Receptions with Cam Newton in 2019&quot;, subtitle=&quot;New England Patriots Receivers are less productive with Newton&quot;, caption=&quot;Source: footballdb.com | By Jordan Saadeh&quot;) + 
+  theme_minimal() + 
+  theme(
+    plot.title = element_text(size = 16, face = &quot;bold&quot;),
+    axis.title = element_text(size = 10), 
+    plot.subtitle = element_text(size=10), 
+    panel.grid.minor = element_blank()
+    ) + ggsave(&quot;Pats20Recivingplot.png&quot;, width=5, height=2)</code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;
+## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="http://jordansaadeh.github.io/2021/04/04/are-the-new-england-patriots-more-of-a-passing-threat-with-cam-newton-or-tom-brady/index_files/figure-html/unnamed-chunk-11-1.png" width="672" />
+By looking at these two graphs you can see that the Patriots receivers in the 2019 season with Brady were far more productive than the recievers in the 2020 season with Brady. Not only that you can see that Brady had a clear number one wide receiver with Julian Edelman where in the 2019 season Newton’s receivers shared most of the receptions.</p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+
+    
+  </body>
+</html>
+
