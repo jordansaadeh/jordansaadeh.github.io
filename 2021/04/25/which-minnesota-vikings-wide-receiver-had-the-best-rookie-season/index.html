@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.81.0" />
+
+
+<title>Which Minnesota Vikings Wide Receiver Had the Best Rookie Season? - Jordan Saadeh Sports Analytics Blog</title>
+<meta property="og:title" content="Which Minnesota Vikings Wide Receiver Had the Best Rookie Season? - Jordan Saadeh Sports Analytics Blog">
+
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="jordansaadeh23@gmail.com">Email</a></li>
+    
+    <li><a href="http://jordansaadeh.github.io">github</a></li>
+    
+    <li><a href="612-799-2244">Phone Number</a></li>
+    
+    <li><a href="https://twitter.com/jordansaadeh">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">7 min read</span>
+    
+
+    <h1 class="article-title">Which Minnesota Vikings Wide Receiver Had the Best Rookie Season?</h1>
+
+    
+    <span class="article-date">2021-04-25</span>
+    
+
+    <div class="article-content">
+      
+<script src="http://jordansaadeh.github.io/2021/04/25/which-minnesota-vikings-wide-receiver-had-the-best-rookie-season/index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>If you are as big as a Minnesota Vikings fan as I am, you would know that the Vikings have had their fair share of talented wide receivers in the past. From Hall of Famer Cris Carter to Justin Jefferson who is entering his second season in the league.
+For this project I wanted to look at three different Viking receivers and compare who each of their rookie seasons by looking at three main statistics: receptions, receiving yards, and touchdowns.</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.3     ✓ purrr   0.3.4
+## ✓ tibble  3.0.5     ✓ dplyr   1.0.4
+## ✓ tidyr   1.1.2     ✓ stringr 1.4.0
+## ✓ readr   1.4.0     ✓ forcats 0.5.1</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(lubridate)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;lubridate&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     date, intersect, setdiff, union</code></pre>
+<pre class="r"><code>library(ggrepel)
+library(ggplot2)
+library(waffle)</code></pre>
+<p>Insert all libraries needed so each block of code and run successfully.</p>
+<pre class="r"><code>RandyMoss &lt;- read_csv(&quot;~/Desktop/Randy Moss Data  .csv&quot;)</code></pre>
+<pre><code>## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   Player = col_character(),
+##   Gms = col_double(),
+##   Rec = col_double(),
+##   Yds = col_number(),
+##   Avg = col_double(),
+##   YPG = col_double(),
+##   Lg = col_character(),
+##   TD = col_double()
+## )</code></pre>
+<p>Upload the data for first receiver we’ll be looking at, Randy Moss. Moss was drafted by the Minnesota Vikings in 1998. In his rookie season he was named a Pro Bowl starter, Offensive Rookie of the Year, and set the single season touchdown reception record for a rookie, 17 touchdowns and the single season franchise record for receiving yards with 1,313.</p>
+<pre class="r"><code>head(RandyMoss)</code></pre>
+<pre><code>## # A tibble: 1 x 8
+##   Player       Gms   Rec   Yds   Avg   YPG Lg       TD
+##   &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;
+## 1 Randy Moss    16    69  1313  19.0  82.1 61t      17</code></pre>
+<pre class="r"><code>RandyMoss &lt;- c(&quot;Rec&quot;= 69, &quot;Yds&quot;= 1313, &quot;TD&quot;= 17)</code></pre>
+<p>Now lets look at the data we have uploaded for Moss’s rookie season.</p>
+<pre class="r"><code>waffle(RandyMoss/5, rows = 10, xlab=&quot;1 Purple square = 10 Rec, 1 Yellow square = 10, 1 Red square = 5 TD&quot;, colors = c(&quot;Purple&quot;, &quot;yellow&quot;, &quot;Red&quot;)) + labs(title=&quot;Randy Moss had one of the best seasons for a rookie&quot;, subtitle=&quot;Moss breaks multiple records in his first season&quot;, caption=&quot;Source: FootballDB | Graphic by Jordan Saadeh&quot;) + 
+  theme(
+    plot.title = element_text(size = 18, face = &quot;bold&quot;),
+    axis.title = element_text(size = 12),
+    axis.title.y = element_blank()
+  ) + ggsave(&quot;RandyMossWaffle.pdf&quot;)</code></pre>
+<pre><code>## Saving 7 x 5 in image</code></pre>
+<p><img src="http://jordansaadeh.github.io/2021/04/25/which-minnesota-vikings-wide-receiver-had-the-best-rookie-season/index_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+With this code we received a waffle chart that visually shows us how many receptions, receiving yards, and touchdowns Moss had. Each purple square represents ten receptions, each yellow square represents ten receiving yards, and each red square is for five touchdowns.</p>
+<p>As you you can see, Moss had 69 receptions for a total of 1,313 recieving yards. That defintely helped him out to set that single season record for recieving touchdowns as rookie with 17 as well as set the franchise record for receiving yards in a season.</p>
+<pre class="r"><code>Justin_Jefferson_ &lt;- read_csv(&quot;~/Desktop/Justin Jefferson .csv&quot;)</code></pre>
+<pre><code>## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   WK = col_double(),
+##   DATE = col_character(),
+##   OPP = col_character(),
+##   TGT = col_double(),
+##   REC = col_double(),
+##   YDS = col_double(),
+##   YPC = col_double(),
+##   TD = col_double()
+## )</code></pre>
+<p>Now we’ll be look at the Vikings first round pick in the 2020 NFL draft from LSU, Justin Jefferson. Jefferson put together an impressive rookie campaign filling in the spot for Stepon Diggs who was traded to the Buffalo Bills after the 2020 season. Jefferson did not only break Moss’s franchise record for single season receiving yards with 1,400 yards but also the NFL record for rookie receieving yards previously held by Anquan Boldin.</p>
+<pre class="r"><code>head(Justin_Jefferson_)</code></pre>
+<pre><code>## # A tibble: 6 x 8
+##      WK DATE   OPP     TGT   REC   YDS   YPC    TD
+##   &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     1 Sep 13 GB        3     2    26  13       0
+## 2     2 Sep 20 @IND      3     3    44  14.7     0
+## 3     3 Sep 27 TEN       9     7   175  25       1
+## 4     4 Oct 4  @HOU      5     4   103  25.8     0
+## 5     5 Oct 11 @SEA      5     3    23   7.7     0
+## 6     6 Oct 18 ATL      11     9   166  18.4     2</code></pre>
+<pre class="r"><code>JustinJeffersonLogs &lt;- c(&quot;Rec&quot;= 88, &quot;Yds&quot;= 1400, &quot;TD&quot;= 7)</code></pre>
+<p>Here are the same statistics we are going to be looking at for Justin Jefferson.</p>
+<pre class="r"><code>ggplot(Justin_Jefferson_, aes(x=`WK`, y=`YDS`)) + 
+  geom_point(color=&quot;Purple&quot;) + geom_smooth(method=lm, se=FALSE) + 
+  labs(x=&quot;WK&quot;, y=&quot;YDS&quot;, title=&quot;Justin Jefferson Brakes Moss Rookie Record for Receicving Yards&quot;, subtitle=&quot;Did Jefferson have the better rookie season?&quot;, caption=&quot;Source: FootballDB | By Jordan Saadeh&quot;) + 
+  theme_minimal() + 
+  theme(
+    plot.title = element_text(size = 16, face = &quot;bold&quot;),
+    axis.title = element_text(size = 10), 
+    plot.subtitle = element_text(size=10), 
+    panel.grid.minor = element_blank()
+    ) + ggsave(&quot;JustinJefferson.png&quot;, width=5, height=2)</code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<pre><code>## Warning: Removed 1 rows containing non-finite values (stat_smooth).</code></pre>
+<pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<pre><code>## Warning: Removed 1 rows containing non-finite values (stat_smooth).
+
+## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
+<p><img src="http://jordansaadeh.github.io/2021/04/25/which-minnesota-vikings-wide-receiver-had-the-best-rookie-season/index_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+This chart here shows us how many receiving yards Jefferson had for each week of the season. Jefferson had a slow start to the season the first couple of weeks but he really picked it up after week 5 having having seven games with 100 receiving yards or more. He finished the season with 88 catches, 1,400 receiving yards, and seven touchdowns. He was named to the All Pro second-team, first receiver since Moss. Unfortunately Jefferson was snubbed of Offensive Rookie of the Year by Los Angeles Chargers quarterback Justin Herbert.</p>
+<pre class="r"><code>PercyHarvinFixedLogs &lt;- read_csv(&quot;~/Desktop/PercyHarvinFixedLogs.csv&quot;)</code></pre>
+<pre><code>## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   WK = col_double(),
+##   `Game Date` = col_character(),
+##   Opp = col_character(),
+##   Result = col_character(),
+##   Rec = col_double(),
+##   Yds = col_double(),
+##   Avg = col_double(),
+##   Lng = col_double(),
+##   TD = col_double()
+## )</code></pre>
+<p>Now finally our third Vikings reciever we are going to look at, if you have been Vikings for a long time you truly know how exciting Percy Harvin was. 2009 was an exciting year for Vikings fan, we had the best running back in the league with Adrian Peterson and just aquired former rival quarterback Brett Farve from the Green Bay Packers. By adding the speedster from University of Florida Percy Harvin made an instant impact on offense and special teams.</p>
+<pre class="r"><code>head(PercyHarvinFixedLogs)</code></pre>
+<pre><code>## # A tibble: 6 x 9
+##      WK `Game Date` Opp        Result      Rec   Yds   Avg   Lng    TD
+##   &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;      &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1    17 01/03/2010  Giants     W 44 - 7      7    59   8.4    18     0
+## 2    16 12/28/2009  @Bears     L 30 - 36     4    40  10      19     0
+## 3    15 12/20/2009  @Panthers  L 7 - 26      1    10  10      10     0
+## 4    14 12/13/2009  Bengals    W 30 - 10     0     0   0       0     0
+## 5    13 12/06/2009  @Cardinals L 17 - 30     6    79  13.2    31     1
+## 6    12 11/29/2009  Bears      W 36 - 10     6   101  16.8    31     1</code></pre>
+<p>While Harvin was a weapon that was used everywhere on the field from in the slot position, in the backfield, and returning kicks and punts we are just going to evaluate him by the same three statistics we used prior.</p>
+<pre class="r"><code>ggplot() + 
+  geom_step(data=PercyHarvinFixedLogs, aes(x=WK, y=Yds, group=Rec), color=&quot;purple&quot;) +
+  labs(
+    x=&quot;Wk&quot;, 
+    y=&quot;Rec&quot;, 
+    title=&quot;Percy Harvin was a key factor to getting the 2009 NFC Championship&quot;, 
+    subtitle=&quot;Harvin was more than just a reciever&quot;, 
+    caption=&quot;Source: FootballDB | By Jordan Saadeh&quot;) +
+theme(
+    plot.title = element_text(size = 18, face = &quot;bold&quot;),
+    axis.title = element_text(size = 12),
+    axis.title.y = element_blank()
+  ) + ggsave(&quot;PercyHarvin.pdf&quot;)</code></pre>
+<pre><code>## Saving 7 x 5 in image</code></pre>
+<p><img src="http://jordansaadeh.github.io/2021/04/25/which-minnesota-vikings-wide-receiver-had-the-best-rookie-season/index_files/figure-html/unnamed-chunk-12-1.png" width="672" />
+This step chart shows us how many receiving yards Harvin had throughout his rookie year. In comparison Harvin’s receiving yards are nearly as close as Moss or Jefferson but he was very consistent. By the end of the season he only had 60 receptions and eight touchdowns, two of them being kick returns. Harvin was the first Vikings player to score a touchdown in his first three games in three different ways. Simply electric. He was as well a late addition the Pro Bowl as a kick returner.</p>
+<p>After looking at these three Vikings receivers rookie season I think it depends on who you ask who had the better rookie season. Older fans tend to say Moss because no has seen a receiver with the skill set he had. But, if you ask a younger football fan they would say Jefferson because we simply were not alive to witness what Moss was capable of.</p>
+<p>In my opinion, I firmly believe Harvin was the most exciting Vikings rookie to watch. Whenever he had the ball he was a threat to score, but Jefferson is the better reciever than both.</p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+
+    
+  </body>
+</html>
+
