@@ -2,13 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://jordansaadeh.github.io/categories/amazon/</loc>
+    <lastmod>2021-05-04T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://jordansaadeh.github.io/categories/</loc>
+    <lastmod>2021-05-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://jordansaadeh.github.io/tags/draft/</loc>
     <lastmod>2021-05-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://jordansaadeh.github.io/categories/draft/</loc>
     <lastmod>2021-05-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://jordansaadeh.github.io/2021/05/04/evaluating-the-minnesota-vikings-2021-nfl-draft/</loc>
+    <lastmod>2021-05-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://jordansaadeh.github.io/2021/05/04/evaluating-the-minnesots-vikings-2021-draft/</loc>
     <lastmod>2021-05-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://jordansaadeh.github.io/</loc>
@@ -23,6 +32,9 @@
     <loc>http://jordansaadeh.github.io/categories/nfl/</loc>
     <lastmod>2021-05-04T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://jordansaadeh.github.io/2021/05/04/nfl-plans-on-airing-thursday-night-football-on-amazon-prime-video/</loc>
+    <lastmod>2021-05-04T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://jordansaadeh.github.io/post/</loc>
     <lastmod>2021-05-04T00:00:00+00:00</lastmod>
   </url><url>
@@ -33,6 +45,9 @@
     <lastmod>2021-05-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://jordansaadeh.github.io/tags/</loc>
+    <lastmod>2021-05-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://jordansaadeh.github.io/tags/thursday-night-football/</loc>
     <lastmod>2021-05-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://jordansaadeh.github.io/tags/justin-jefferson/</loc>
