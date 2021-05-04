@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Minnesota Vikings on Jordan Saadeh Sports Analytics Blog</title>
-    <link>http://jordansaadeh.github.io/categories/minnesota-vikings/</link>
+    <link>http://jordansaadeh.github.io/tags/minnesota-vikings/</link>
     <description>Recent content in Minnesota Vikings on Jordan Saadeh Sports Analytics Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 04 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://jordansaadeh.github.io/categories/minnesota-vikings/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 04 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://jordansaadeh.github.io/tags/minnesota-vikings/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Evaluating the Minnesota Vikings 2021 NFL Draft </title>
       <link>http://jordansaadeh.github.io/2021/05/04/evaluating-the-minnesota-vikings-2021-nfl-draft/</link>
@@ -15,15 +15,6 @@
       <guid>http://jordansaadeh.github.io/2021/05/04/evaluating-the-minnesota-vikings-2021-nfl-draft/</guid>
       <description>Going into the 2021 NFL Draft the Minnesota Vikings were looking to draft a handful of rookies who can eventually play a major role on the team. General Manager of the Minnesota Vikings and Head Coach Mike Zimmer did just that on draft night, with drafting a total of eleven players.
 GM Rick Spielman shocked all Vikings fans in the first round of the draft by trading back picks from the 14th overall pick to the 23rd overall pick.</description>
-    </item>
-    
-    <item>
-      <title>Which Minnesota Vikings Wide Receiver Had the Best Rookie Season?</title>
-      <link>http://jordansaadeh.github.io/2021/04/25/which-minnesota-vikings-wide-receiver-had-the-best-rookie-season/</link>
-      <pubDate>Sun, 25 Apr 2021 00:00:00 +0000</pubDate>
-      
-      <guid>http://jordansaadeh.github.io/2021/04/25/which-minnesota-vikings-wide-receiver-had-the-best-rookie-season/</guid>
-      <description>If you are as big as a Minnesota Vikings fan as I am, you would know that the Vikings have had their fair share of talented wide receivers in the past. From Hall of Famer Cris Carter to Justin Jefferson who is entering his second season in the league. For this project I wanted to look at three different Viking receivers and compare who each of their rookie seasons by looking at three main statistics: receptions, receiving yards, and touchdowns.</description>
     </item>
     
   </channel>
